@@ -1,30 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/account_screen.dart';
-import 'package:flutter_application_1/login_screen.dart';
+import 'package:flutter_application_1/account_screen.dart'; // Se necessário
+import 'package:flutter_application_1/practices_screen.dart';
+import 'package:flutter_application_1/timer_screen.dart';
+import 'package:flutter_application_1/profile_screen.dart';
+import 'package:flutter_application_1/videos_screen.dart'; // Se necessário
+import 'package:flutter_application_1/home.dart'; // Se necessário
+import 'package:flutter_application_1/login_screen.dart'; // Se necessário
 
 // Função principal que inicia a execução do aplicativo Flutter.
 void main() {
   runApp(MyApp());
 }
 
-// Declaração da classe MyApp, que é um StatelessWidget. StatelessWidget é uma base para widgets que não requerem estado dinâmico (mudanças na UI após o widget ser construído).
+// MyApp é um StatelessWidget que cria a estrutura básica do aplicativo.
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // Retorna um MaterialApp, que serve como um container para a aplicação Flutter, configurando estilos e rotas de navegação, entre outros.
     return MaterialApp(
-      title: 'lo-jy',
-      debugShowCheckedModeBanner: false, // Remove a faixa de debug.
+      title: 'Navegação Flutter',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch:
-            Colors.blue, // Define a cor principal do tema do aplicativo.
+        primarySwatch: Colors.blue,
       ),
-      home: LoginScreen(), // Define o widget inicial, que é a tela de login.
+      home:
+          LoginScreen(), // Pode ser alterado para HomeScreen conforme necessário.
       routes: {
-        // Define as rotas.
-        '/signup': (context) => SignupScreen(), // Rota para a tela de cadastro.
-        '/login': (context) =>
-            LoginScreen(), // Rota para a tela de login, novamente acessível.
+        // Definindo rotas para navegação no aplicativo.
+        '/home': (context) => HomeScreen(), // Tela principal ou Home.
+        '/practices': (context) => PracticesScreen(),
+        //'/videos': (context) => VideosScreen(),
+        '/timer': (context) => TimerScreen(),
+        '/profile': (context) => ProfileScreen(),
+        '/signup': (context) => SignupScreen(), // Se necessário para registro.
+        '/login': (context) => LoginScreen(), // Para tela de login.
       },
     );
   }
